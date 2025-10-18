@@ -61,30 +61,69 @@
       transform: translateY(-3px);
       box-shadow: 0 10px 20px rgba(142, 45, 226, 0.3);
     }
+    .logo-container {
+      width: 25px;
+      height: 25px;
+    }
+    .hero-section {
+      background: radial-gradient(circle at 50% 50%, rgba(142, 45, 226, 0.1), transparent 70%);
+    }
+    .industry-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .industry-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    }
+    .stats-card {
+      transition: all 0.3s ease;
+    }
+    .stats-card:hover {
+      transform: scale(1.05);
+    }
+    .region-tag {
+      transition: all 0.3s ease;
+    }
+    .region-tag:hover {
+      transform: scale(1.1);
+      background: rgba(142, 45, 226, 0.4) !important;
+    }
+    .email-input {
+      transition: all 0.3s ease;
+    }
+    .email-input:focus {
+      box-shadow: 0 0 0 2px rgba(142, 45, 226, 0.5);
+    }
   </style>
 </head>
 <body class="flex flex-col min-h-screen">
 
   <!-- Navigation -->
-  <header class="w-full flex justify-between items-center p-6 bg-transparent fixed top-0 z-50 glass-effect">
+  <header class="w-full flex justify-between items-center p-4 md:p-6 bg-transparent fixed top-0 z-50 glass-effect">
     <div class="flex items-center">
-      <img src="assets/logo.png" alt="Son LLC Logo" class="w-12 h-12 mr-3 rounded-full glow">
+      <div class="logo-container mr-3 rounded-full overflow-hidden glow">
+        <img src="assets/logo.png" alt="Son LLC Logo" class="w-full h-full object-cover">
+      </div>
       <span class="text-xl font-bold gradient-text">Son LLC</span>
     </div>
-    <nav class="space-x-4">
-      <a href="/Download" class="nav-button px-4 py-2 rounded-md border border-white hover:bg-white/20 transition">Download</a>
-      <a href="/PP" class="nav-button px-4 py-2 rounded-md border border-white hover:bg-white/20 transition">Privacy Policy & Terms</a>
+    <nav class="space-x-2 md:space-x-4">
+      <a href="/Download" class="nav-button px-3 py-2 rounded-md border border-white hover:bg-white/20 transition text-sm md:text-base">
+        <i class="fas fa-download mr-1"></i> Download
+      </a>
+      <a href="/PP" class="nav-button px-3 py-2 rounded-md border border-white hover:bg-white/20 transition text-sm md:text-base">
+        <i class="fas fa-shield-alt mr-1"></i> Privacy & Terms
+      </a>
     </nav>
   </header>
 
   <!-- Hero Section -->
-  <section class="pt-32 pb-20 px-6 flex flex-col items-center text-center">
-    <h1 class="text-6xl md:text-7xl font-bold mb-6">Son LLC</h1>
-    <p class="text-2xl md:text-3xl mb-10 max-w-3xl">A Global Enterprise Powering Innovation Across Industries</p>
-    <div class="soon-text mb-16">COMING SOON</div>
+  <section class="pt-28 pb-20 px-6 flex flex-col items-center text-center hero-section">
+    <h1 class="text-5xl md:text-7xl font-bold mb-6 fade-in">Son LLC</h1>
+    <p class="text-xl md:text-3xl mb-10 max-w-3xl fade-in">A Global Enterprise Powering Innovation Across Industries</p>
+    <div class="soon-text mb-16 floating">COMING SOON</div>
     
     <!-- CTA Buttons -->
-    <div class="flex flex-col sm:flex-row gap-6 mb-16">
+    <div class="flex flex-col sm:flex-row gap-6 mb-16 fade-in">
       <a href="/Download" class="cta-button px-8 py-4 rounded-lg text-white font-bold text-lg flex items-center justify-center">
         <i class="fas fa-download mr-2"></i> Download Now
       </a>
@@ -95,15 +134,15 @@
     
     <!-- Stats Section -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl w-full mt-10">
-      <div class="glass-effect p-6 rounded-xl fade-in">
+      <div class="glass-effect p-6 rounded-xl fade-in stats-card">
         <div class="text-4xl font-bold gradient-text mb-2">150+</div>
         <div class="text-lg">Companies Worldwide</div>
       </div>
-      <div class="glass-effect p-6 rounded-xl fade-in">
+      <div class="glass-effect p-6 rounded-xl fade-in stats-card">
         <div class="text-4xl font-bold gradient-text mb-2">50+</div>
         <div class="text-lg">Countries of Operation</div>
       </div>
-      <div class="glass-effect p-6 rounded-xl fade-in">
+      <div class="glass-effect p-6 rounded-xl fade-in stats-card">
         <div class="text-4xl font-bold gradient-text mb-2">10K+</div>
         <div class="text-lg">Employees Globally</div>
       </div>
@@ -112,24 +151,24 @@
 
   <!-- Industries Section -->
   <section class="py-20 px-6">
-    <h2 class="text-4xl font-bold text-center mb-16">Our Global Industries</h2>
+    <h2 class="text-4xl font-bold text-center mb-16 fade-in">Our Global Industries</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-      <div class="glass-effect p-6 rounded-xl fade-in">
+      <div class="glass-effect p-6 rounded-xl fade-in industry-card">
         <div class="text-3xl mb-4 text-center"><i class="fas fa-microchip gradient-text"></i></div>
         <h3 class="text-xl font-bold mb-3 text-center">Technology</h3>
         <p class="text-gray-300">Cutting-edge software, hardware, and AI solutions transforming businesses worldwide.</p>
       </div>
-      <div class="glass-effect p-6 rounded-xl fade-in">
+      <div class="glass-effect p-6 rounded-xl fade-in industry-card">
         <div class="text-3xl mb-4 text-center"><i class="fas fa-hand-holding-usd gradient-text"></i></div>
         <h3 class="text-xl font-bold mb-3 text-center">Finance</h3>
         <p class="text-gray-300">Global investment banking, asset management, and fintech innovations.</p>
       </div>
-      <div class="glass-effect p-6 rounded-xl fade-in">
+      <div class="glass-effect p-6 rounded-xl fade-in industry-card">
         <div class="text-3xl mb-4 text-center"><i class="fas fa-leaf gradient-text"></i></div>
         <h3 class="text-xl font-bold mb-3 text-center">Energy</h3>
         <p class="text-gray-300">Sustainable energy solutions and next-generation power technologies.</p>
       </div>
-      <div class="glass-effect p-6 rounded-xl fade-in">
+      <div class="glass-effect p-6 rounded-xl fade-in industry-card">
         <div class="text-3xl mb-4 text-center"><i class="fas fa-heartbeat gradient-text"></i></div>
         <h3 class="text-xl font-bold mb-3 text-center">Healthcare</h3>
         <p class="text-gray-300">Revolutionary medical technologies and pharmaceutical advancements.</p>
@@ -139,15 +178,15 @@
 
   <!-- Global Presence -->
   <section class="py-20 px-6">
-    <h2 class="text-4xl font-bold text-center mb-16">Global Presence</h2>
+    <h2 class="text-4xl font-bold text-center mb-16 fade-in">Global Presence</h2>
     <div class="max-w-4xl mx-auto glass-effect p-8 rounded-xl fade-in">
       <div class="flex flex-wrap justify-center gap-4 mb-8">
-        <span class="px-4 py-2 rounded-full bg-purple-900/30 border border-purple-500">North America</span>
-        <span class="px-4 py-2 rounded-full bg-purple-900/30 border border-purple-500">Europe</span>
-        <span class="px-4 py-2 rounded-full bg-purple-900/30 border border-purple-500">Asia Pacific</span>
-        <span class="px-4 py-2 rounded-full bg-purple-900/30 border border-purple-500">Middle East</span>
-        <span class="px-4 py-2 rounded-full bg-purple-900/30 border border-purple-500">Africa</span>
-        <span class="px-4 py-2 rounded-full bg-purple-900/30 border border-purple-500">South America</span>
+        <span class="px-4 py-2 rounded-full bg-purple-900/30 border border-purple-500 region-tag">North America</span>
+        <span class="px-4 py-2 rounded-full bg-purple-900/30 border border-purple-500 region-tag">Europe</span>
+        <span class="px-4 py-2 rounded-full bg-purple-900/30 border border-purple-500 region-tag">Asia Pacific</span>
+        <span class="px-4 py-2 rounded-full bg-purple-900/30 border border-purple-500 region-tag">Middle East</span>
+        <span class="px-4 py-2 rounded-full bg-purple-900/30 border border-purple-500 region-tag">Africa</span>
+        <span class="px-4 py-2 rounded-full bg-purple-900/30 border border-purple-500 region-tag">South America</span>
       </div>
       <p class="text-center text-lg">With headquarters in strategic global locations, Son LLC maintains a presence in major financial and technological hubs worldwide, driving innovation and economic growth across continents.</p>
     </div>
@@ -159,7 +198,7 @@
       <h2 class="text-3xl font-bold mb-6">Be the First to Know</h2>
       <p class="text-xl mb-8">Join our exclusive mailing list to receive updates on our upcoming global initiatives.</p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <input type="email" placeholder="Enter your email" class="px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:border-purple-500 flex-grow max-w-md">
+        <input type="email" placeholder="Enter your email" class="email-input px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:border-purple-500 flex-grow max-w-md">
         <button class="px-6 py-3 rounded-lg bg-gradient-to-r from-purple-700 to-purple-900 hover:from-purple-600 hover:to-purple-800 transition font-bold">Notify Me</button>
       </div>
     </div>
@@ -170,6 +209,9 @@
     <div class="max-w-6xl mx-auto px-6">
       <div class="flex flex-col md:flex-row justify-between items-center mb-8">
         <div class="flex items-center mb-4 md:mb-0">
+          <div class="logo-container mr-3 rounded-full overflow-hidden glow">
+            <img src="assets/logo.png" alt="Son LLC Logo" class="w-full h-full object-cover">
+          </div>
           <span class="text-xl font-bold gradient-text">Son LLC</span>
         </div>
         <div class="flex space-x-6 text-2xl">
