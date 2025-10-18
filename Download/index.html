@@ -4,68 +4,79 @@
   <meta charset="UTF-8">
   <title>Son LLC - Download Center</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.3/dist/tailwind.min.css" rel="stylesheet">
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f9fafb;
+      background-color: #f5f7fa;
       color: #111827;
+      margin: 0;
     }
+
+    /* Header */
     header {
       background-color: #ffffff;
-      color: #111827;
       padding: 2rem 1rem;
       text-align: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
       position: sticky;
       top: 0;
       z-index: 50;
     }
-    h1 {
+    header h1 {
       margin: 0;
       font-size: 2.2rem;
-      letter-spacing: 1px;
+      font-weight: bold;
     }
-    .container {
-      padding: 2rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
+
+    /* Fade-in */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease;
     }
-    .card {
-      background-color: #ffffff;
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Cards */
+    .gradient-card {
+      background: linear-gradient(135deg, #ffffff 0%, #f0f4f8 100%);
+      border-radius: 1rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
       padding: 1.5rem;
-      border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    }
-    .card h2 {
-      margin-top: 0;
-      color: #111827;
-    }
-    .card p {
-      color: #4b5563;
-      font-size: 0.95rem;
-    }
-    .btn-group {
       display: flex;
-      gap: 0.5rem;
-      margin-top: 1rem;
+      flex-direction: column;
+      justify-content: space-between;
     }
+    .gradient-card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+    }
+    .card-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .card-desc {
+      font-size: 0.95rem;
+      color: #4b5563;
+      flex-grow: 1;
+    }
+
+    /* Buttons */
     .btn {
       flex: 1;
       padding: 0.7rem;
       text-align: center;
-      border-radius: 8px;
-      text-decoration: none;
+      border-radius: 0.5rem;
       font-weight: bold;
       font-size: 0.9rem;
-      transition: background 0.3s ease, transform 0.2s ease;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      text-decoration: none;
     }
     .btn-download {
       background: linear-gradient(90deg, #3b82f6, #2563eb);
@@ -80,6 +91,17 @@
       color: #6b7280;
       cursor: not-allowed;
     }
+
+    /* Container */
+    .container {
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
     footer {
       text-align: center;
       padding: 1rem;
@@ -91,81 +113,120 @@
   </style>
 </head>
 <body>
+
   <header>
     <h1>Son LLC - Download Center</h1>
   </header>
 
   <div class="container">
     <!-- SonPay -->
-    <div class="card">
-      <h2>SonPay</h2>
-      <p>Smart Digital Wallet – Send, Receive, Scan QR, Pay NFC, Withdraw, Deposit, Donate, and more!</p>
-      <div class="btn-group">
+    <div class="gradient-card fade-in flex flex-col">
+      <div>
+        <div class="card-title">SonPay</div>
+        <div class="card-desc">Smart Digital Wallet – Send, Receive, Scan QR, Pay NFC, Withdraw, Deposit, Donate, and more!</div>
+      </div>
+      <div class="flex gap-2 mt-4">
         <a href="https://sonllc.github.io/Download/SonPay.apk" class="btn btn-download" download>Android</a>
         <span class="btn btn-soon">iOS - Soon</span>
       </div>
     </div>
-    
-    <div class="card">
-      <h2>Son______</h2>
-      <p>Coming soon...</p>
-      <div class="btn-group">
+
+    <!-- Placeholder Apps -->
+    <div class="gradient-card fade-in flex flex-col">
+      <div>
+        <div class="card-title">Son______</div>
+        <div class="card-desc">Coming soon...</div>
+      </div>
+      <div class="flex gap-2 mt-4">
         <span class="btn btn-soon">Android - Soon</span>
         <span class="btn btn-soon">iOS - Soon</span>
       </div>
     </div>
-    <div class="card">
-      <h2>Son__</h2>
-      <p>Coming soon...</p>
-      <div class="btn-group">
+
+    <div class="gradient-card fade-in flex flex-col">
+      <div>
+        <div class="card-title">Son__</div>
+        <div class="card-desc">Coming soon...</div>
+      </div>
+      <div class="flex gap-2 mt-4">
         <span class="btn btn-soon">Android - Soon</span>
         <span class="btn btn-soon">iOS - Soon</span>
       </div>
     </div>
-    <div class="card">
-      <h2>Son____</h2>
-      <p>Coming soon...</p>
-      <div class="btn-group">
+
+    <div class="gradient-card fade-in flex flex-col">
+      <div>
+        <div class="card-title">Son____</div>
+        <div class="card-desc">Coming soon...</div>
+      </div>
+      <div class="flex gap-2 mt-4">
         <span class="btn btn-soon">Android - Soon</span>
         <span class="btn btn-soon">iOS - Soon</span>
       </div>
     </div>
-    <div class="card">
-      <h2>Son______</h2>
-      <p>Coming soon...</p>
-      <div class="btn-group">
+
+    <div class="gradient-card fade-in flex flex-col">
+      <div>
+        <div class="card-title">Son______</div>
+        <div class="card-desc">Coming soon...</div>
+      </div>
+      <div class="flex gap-2 mt-4">
         <span class="btn btn-soon">Android - Soon</span>
         <span class="btn btn-soon">iOS - Soon</span>
       </div>
     </div>
-    <div class="card">
-      <h2>Son_____</h2>
-      <p>Coming soon...</p>
-      <div class="btn-group">
+
+    <div class="gradient-card fade-in flex flex-col">
+      <div>
+        <div class="card-title">Son_____</div>
+        <div class="card-desc">Coming soon...</div>
+      </div>
+      <div class="flex gap-2 mt-4">
         <span class="btn btn-soon">Android - Soon</span>
         <span class="btn btn-soon">iOS - Soon</span>
       </div>
     </div>
-    <div class="card">
-      <h2>Son______</h2>
-      <p>Coming soon...</p>
-      <div class="btn-group">
+
+    <div class="gradient-card fade-in flex flex-col">
+      <div>
+        <div class="card-title">Son______</div>
+        <div class="card-desc">Coming soon...</div>
+      </div>
+      <div class="flex gap-2 mt-4">
         <span class="btn btn-soon">Android - Soon</span>
         <span class="btn btn-soon">iOS - Soon</span>
       </div>
     </div>
-    <div class="card">
-      <h2>Son____</h2>
-      <p>Coming soon...</p>
-      <div class="btn-group">
+
+    <div class="gradient-card fade-in flex flex-col">
+      <div>
+        <div class="card-title">Son____</div>
+        <div class="card-desc">Coming soon...</div>
+      </div>
+      <div class="flex gap-2 mt-4">
         <span class="btn btn-soon">Android - Soon</span>
         <span class="btn btn-soon">iOS - Soon</span>
       </div>
     </div>
+
   </div>
 
   <footer>
     &copy; 2025 Son LLC. All rights reserved.
   </footer>
+
+  <script>
+    // Fade-in on scroll
+    const fadeElements = document.querySelectorAll('.fade-in');
+    const fadeInOnScroll = () => {
+      fadeElements.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100) el.classList.add('visible');
+      });
+    };
+    window.addEventListener('scroll', fadeInOnScroll);
+    document.addEventListener('DOMContentLoaded', fadeInOnScroll);
+  </script>
+
 </body>
 </html>
