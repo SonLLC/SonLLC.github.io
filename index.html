@@ -3,13 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Son LLC</title>
+  <title>Son LLC - Global Enterprise</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.3/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     body {
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      background: linear-gradient(135deg, #0f172a, #1e293b, #334155);
       color: #ffffff;
       font-family: 'Segoe UI', sans-serif;
+      overflow-x: hidden;
     }
     .nav-button:hover {
       background-color: rgba(255, 255, 255, 0.1);
@@ -21,30 +23,174 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
+    .glass-effect {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .floating {
+      animation: floating 6s ease-in-out infinite;
+    }
+    @keyframes floating {
+      0% { transform: translate(0, 0px); }
+      50% { transform: translate(0, -15px); }
+      100% { transform: translate(0, 0px); }
+    }
+    .glow {
+      box-shadow: 0 0 20px rgba(142, 45, 226, 0.3);
+    }
+    .gradient-text {
+      background: linear-gradient(to right, #8e2de2, #4a00e0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
 <body class="flex flex-col min-h-screen">
 
   <!-- Navigation -->
-  <header class="w-full flex justify-end p-6 bg-transparent fixed top-0 z-50">
+  <header class="w-full flex justify-between items-center p-6 bg-transparent fixed top-0 z-50 glass-effect">
+    <div class="flex items-center">
+      <img src="logo.jpg" alt="Son LLC Logo" class="w-10 h-10 mr-3 rounded-full glow">
+      <span class="text-xl font-bold gradient-text">Son LLC</span>
+    </div>
     <nav class="space-x-4">
       <a href="https://SonLLC.github.io/Download" class="nav-button px-4 py-2 rounded-md border border-white hover:bg-white/20 transition">Download</a>
       <a href="https://SonLLC.github.io/PP" class="nav-button px-4 py-2 rounded-md border border-white hover:bg-white/20 transition">Privacy Policy & Terms</a>
     </nav>
   </header>
 
-  <!-- Main Content -->
-  <main class="flex-grow flex flex-col justify-center items-center text-center pt-24">
-    <!-- Logo -->
-    <img src="logo.png" alt="Son LLC Logo" class="w-32 h-32 mb-6"> <!-- ضع رابط شعارك هنا -->
-    <h1 class="text-5xl font-bold mb-6">Son LLC</h1>
-    <p class="soon-text">SOON</p>
-  </main>
+  <!-- Hero Section -->
+  <section class="pt-32 pb-20 px-6 flex flex-col items-center text-center">
+    <div class="floating mb-10">
+      <img src="logo.jpg" alt="Son LLC Logo" class="w-48 h-48 rounded-full glow">
+    </div>
+    <h1 class="text-6xl md:text-7xl font-bold mb-6">Son LLC</h1>
+    <p class="text-2xl md:text-3xl mb-10 max-w-3xl">A Global Enterprise Powering Innovation Across Industries</p>
+    <div class="soon-text mb-16">COMING SOON</div>
+    
+    <!-- Stats Section -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl w-full mt-10">
+      <div class="glass-effect p-6 rounded-xl fade-in">
+        <div class="text-4xl font-bold gradient-text mb-2">150+</div>
+        <div class="text-lg">Companies Worldwide</div>
+      </div>
+      <div class="glass-effect p-6 rounded-xl fade-in">
+        <div class="text-4xl font-bold gradient-text mb-2">50+</div>
+        <div class="text-lg">Countries of Operation</div>
+      </div>
+      <div class="glass-effect p-6 rounded-xl fade-in">
+        <div class="text-4xl font-bold gradient-text mb-2">10K+</div>
+        <div class="text-lg">Employees Globally</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industries Section -->
+  <section class="py-20 px-6">
+    <h2 class="text-4xl font-bold text-center mb-16">Our Global Industries</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+      <div class="glass-effect p-6 rounded-xl fade-in">
+        <div class="text-3xl mb-4 text-center"><i class="fas fa-microchip gradient-text"></i></div>
+        <h3 class="text-xl font-bold mb-3 text-center">Technology</h3>
+        <p class="text-gray-300">Cutting-edge software, hardware, and AI solutions transforming businesses worldwide.</p>
+      </div>
+      <div class="glass-effect p-6 rounded-xl fade-in">
+        <div class="text-3xl mb-4 text-center"><i class="fas fa-hand-holding-usd gradient-text"></i></div>
+        <h3 class="text-xl font-bold mb-3 text-center">Finance</h3>
+        <p class="text-gray-300">Global investment banking, asset management, and fintech innovations.</p>
+      </div>
+      <div class="glass-effect p-6 rounded-xl fade-in">
+        <div class="text-3xl mb-4 text-center"><i class="fas fa-leaf gradient-text"></i></div>
+        <h3 class="text-xl font-bold mb-3 text-center">Energy</h3>
+        <p class="text-gray-300">Sustainable energy solutions and next-generation power technologies.</p>
+      </div>
+      <div class="glass-effect p-6 rounded-xl fade-in">
+        <div class="text-3xl mb-4 text-center"><i class="fas fa-heartbeat gradient-text"></i></div>
+        <h3 class="text-xl font-bold mb-3 text-center">Healthcare</h3>
+        <p class="text-gray-300">Revolutionary medical technologies and pharmaceutical advancements.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Global Presence -->
+  <section class="py-20 px-6">
+    <h2 class="text-4xl font-bold text-center mb-16">Global Presence</h2>
+    <div class="max-w-4xl mx-auto glass-effect p-8 rounded-xl fade-in">
+      <div class="flex flex-wrap justify-center gap-4 mb-8">
+        <span class="px-4 py-2 rounded-full bg-purple-900/30 border border-purple-500">North America</span>
+        <span class="px-4 py-2 rounded-full bg-purple-900/30 border border-purple-500">Europe</span>
+        <span class="px-4 py-2 rounded-full bg-purple-900/30 border border-purple-500">Asia Pacific</span>
+        <span class="px-4 py-2 rounded-full bg-purple-900/30 border border-purple-500">Middle East</span>
+        <span class="px-4 py-2 rounded-full bg-purple-900/30 border border-purple-500">Africa</span>
+        <span class="px-4 py-2 rounded-full bg-purple-900/30 border border-purple-500">South America</span>
+      </div>
+      <p class="text-center text-lg">With headquarters in strategic global locations, Son LLC maintains a presence in major financial and technological hubs worldwide, driving innovation and economic growth across continents.</p>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 px-6 text-center">
+    <div class="max-w-3xl mx-auto glass-effect p-10 rounded-2xl fade-in">
+      <h2 class="text-3xl font-bold mb-6">Be the First to Know</h2>
+      <p class="text-xl mb-8">Join our exclusive mailing list to receive updates on our upcoming global initiatives.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <input type="email" placeholder="Enter your email" class="px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:border-purple-500 flex-grow max-w-md">
+        <button class="px-6 py-3 rounded-lg bg-gradient-to-r from-purple-700 to-purple-900 hover:from-purple-600 hover:to-purple-800 transition font-bold">Notify Me</button>
+      </div>
+    </div>
+  </section>
 
   <!-- Footer -->
-  <footer class="text-center py-6">
-    <p>&copy; 2025 Son LLC. All rights reserved.</p>
+  <footer class="text-center py-10 glass-effect mt-10">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+        <div class="flex items-center mb-4 md:mb-0">
+          <img src="logo.jpg" alt="Son LLC Logo" class="w-10 h-10 mr-3 rounded-full">
+          <span class="text-xl font-bold gradient-text">Son LLC</span>
+        </div>
+        <div class="flex space-x-6 text-2xl">
+          <a href="#" class="hover:text-purple-400 transition"><i class="fab fa-linkedin"></i></a>
+          <a href="#" class="hover:text-purple-400 transition"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="hover:text-purple-400 transition"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="hover:text-purple-400 transition"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <p class="text-gray-400">&copy; 2025 Son LLC. All rights reserved. A Global Enterprise.</p>
+    </div>
   </footer>
 
+  <script>
+    // Fade in animation on scroll
+    document.addEventListener('DOMContentLoaded', function() {
+      const fadeElements = document.querySelectorAll('.fade-in');
+      
+      const fadeInOnScroll = function() {
+        fadeElements.forEach(element => {
+          const elementTop = element.getBoundingClientRect().top;
+          const elementVisible = 150;
+          
+          if (elementTop < window.innerHeight - elementVisible) {
+            element.classList.add('visible');
+          }
+        });
+      };
+      
+      // Check on load
+      fadeInOnScroll();
+      
+      // Check on scroll
+      window.addEventListener('scroll', fadeInOnScroll);
+    });
+  </script>
 </body>
 </html>
