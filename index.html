@@ -68,7 +68,7 @@
   <!-- Navigation -->
   <header class="w-full flex justify-between items-center p-6 bg-transparent fixed top-0 z-50 glass-effect">
     <div class="flex items-center">
-      <img src="logo.png" alt="Son LLC Logo" class="w-10 h-10 mr-3 rounded-full glow">
+      <img src="logo.png" alt="Son LLC Logo" class="w-8 h-8 mr-3 rounded-full glow">
       <span class="text-xl font-bold gradient-text">Son LLC</span>
     </div>
     <nav class="space-x-4">
@@ -170,7 +170,7 @@
     <div class="max-w-6xl mx-auto px-6">
       <div class="flex flex-col md:flex-row justify-between items-center mb-8">
         <div class="flex items-center mb-4 md:mb-0">
-          <img src="logo.png" alt="Son LLC Logo" class="w-10 h-10 mr-3 rounded-full">
+          <img src="logo.png" alt="Son LLC Logo" class="w-8 h-8 mr-3 rounded-full">
           <span class="text-xl font-bold gradient-text">Son LLC</span>
         </div>
         <div class="flex space-x-6 text-2xl">
@@ -188,22 +188,16 @@
     // Fade in animation on scroll
     document.addEventListener('DOMContentLoaded', function() {
       const fadeElements = document.querySelectorAll('.fade-in');
-      
       const fadeInOnScroll = function() {
         fadeElements.forEach(element => {
           const elementTop = element.getBoundingClientRect().top;
           const elementVisible = 150;
-          
           if (elementTop < window.innerHeight - elementVisible) {
             element.classList.add('visible');
           }
         });
       };
-      
-      // Check on load
       fadeInOnScroll();
-      
-      // Check on scroll
       window.addEventListener('scroll', fadeInOnScroll);
     });
   </script>
