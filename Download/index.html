@@ -9,15 +9,18 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
       padding: 0;
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      color: #fff;
+      background-color: #f9fafb;
+      color: #111827;
     }
     header {
-      background: linear-gradient(90deg, #1565C0, #1E88E5);
-      color: white;
+      background-color: #ffffff;
+      color: #111827;
       padding: 2rem 1rem;
       text-align: center;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 50;
     }
     h1 {
       margin: 0;
@@ -31,23 +34,22 @@
       gap: 1.5rem;
     }
     .card {
-      background: rgba(255, 255, 255, 0.08);
+      background-color: #ffffff;
       padding: 1.5rem;
       border-radius: 15px;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 35px rgba(0,0,0,0.4);
+      transform: translateY(-6px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
     }
     .card h2 {
       margin-top: 0;
-      color: #fff;
+      color: #111827;
     }
     .card p {
-      color: #ddd;
+      color: #4b5563;
       font-size: 0.95rem;
     }
     .btn-group {
@@ -66,25 +68,25 @@
       transition: background 0.3s ease, transform 0.2s ease;
     }
     .btn-download {
-      background: linear-gradient(90deg, #43a047, #66bb6a);
+      background: linear-gradient(90deg, #3b82f6, #2563eb);
       color: white;
     }
     .btn-download:hover {
-      background: linear-gradient(90deg, #2e7d32, #4caf50);
+      background: linear-gradient(90deg, #1d4ed8, #1e40af);
       transform: scale(1.05);
     }
     .btn-soon {
-      background-color: rgba(255, 255, 255, 0.15);
-      color: #bbb;
+      background-color: #e5e7eb;
+      color: #6b7280;
       cursor: not-allowed;
     }
     footer {
       text-align: center;
       padding: 1rem;
       font-size: 0.9rem;
-      color: #ccc;
+      color: #6b7280;
       margin-top: 2rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      border-top: 1px solid #e5e7eb;
     }
   </style>
 </head>
