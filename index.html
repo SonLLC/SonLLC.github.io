@@ -9,8 +9,8 @@
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background-color: #111827;
-      color: #ffffff;
+      background-color: #f9fafb;
+      color: #111827;
     }
     .fade-in {
       opacity: 0;
@@ -26,107 +26,111 @@
     }
     .cta-button:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    }
+    .small-logo {
+      width: 30px;
+      height: 30px;
     }
   </style>
 </head>
 <body class="flex flex-col min-h-screen">
 
   <!-- Navigation -->
-  <header class="w-full flex justify-between items-center p-4 md:p-6 fixed top-0 z-50 bg-gray-900/80 backdrop-blur-md">
+  <header class="w-full flex justify-between items-center p-4 md:p-6 fixed top-0 z-50 bg-white shadow-sm">
     <div class="flex items-center">
-      <img src="assets/logo.png" alt="Son LLC Logo" class="w-10 h-10 mr-3">
-      <span class="text-xl font-semibold">Son LLC</span>
+      <img src="assets/logo.png" alt="Son LLC Logo" class="small-logo mr-3">
+      <span class="text-lg font-semibold">Son LLC</span>
     </div>
     <nav class="space-x-4">
-      <a href="/Download" class="px-4 py-2 rounded-md hover:bg-gray-700 transition">Download</a>
-      <a href="/PP" class="px-4 py-2 rounded-md hover:bg-gray-700 transition">Privacy & Terms</a>
+      <a href="/Download" class="px-3 py-2 rounded-md hover:bg-gray-200 transition">Download</a>
+      <a href="/PP" class="px-3 py-2 rounded-md hover:bg-gray-200 transition">Privacy & Terms</a>
     </nav>
   </header>
 
   <!-- Hero Section -->
-  <section class="relative h-screen flex flex-col justify-center items-start md:items-center text-left md:text-center px-6 md:px-20 bg-[url('assets/hero-bg.jpg')] bg-cover bg-center">
-    <div class="bg-black/50 p-6 md:p-12 rounded-lg fade-in">
+  <section class="relative h-screen flex flex-col justify-center items-start md:items-center text-left md:text-center px-6 md:px-20 bg-[url('assets/hero-bg-light.jpg')] bg-cover bg-center">
+    <div class="bg-white/80 p-6 md:p-12 rounded-lg fade-in text-gray-900">
       <h1 class="text-4xl md:text-6xl font-bold mb-4">Powering Innovation Globally</h1>
       <p class="text-lg md:text-2xl mb-6 max-w-2xl">Son LLC drives cutting-edge solutions across technology, finance, energy, and healthcare sectors worldwide.</p>
       <div class="flex flex-col sm:flex-row gap-4">
-        <a href="/Download" class="cta-button bg-purple-700 hover:bg-purple-600 text-white font-semibold px-6 py-3 rounded-md">Download Now</a>
-        <a href="/PP" class="border border-white text-white px-6 py-3 rounded-md hover:bg-gray-800 transition">Privacy & Terms</a>
+        <a href="/Download" class="cta-button bg-blue-600 hover:bg-blue-500 text-white font-semibold px-6 py-3 rounded-md">Download Now</a>
+        <a href="/PP" class="border border-gray-700 text-gray-900 px-6 py-3 rounded-md hover:bg-gray-100 transition">Privacy & Terms</a>
       </div>
     </div>
   </section>
 
   <!-- Industries Section -->
-  <section class="py-20 px-6 bg-gray-900">
+  <section class="py-20 px-6">
     <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 fade-in">Our Industries</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-      <div class="bg-gray-800 p-6 rounded-xl fade-in hover:scale-105 transition">
-        <div class="text-4xl mb-4 text-center"><i class="fas fa-microchip"></i></div>
+      <div class="bg-white p-6 rounded-xl fade-in shadow hover:shadow-lg transition">
+        <div class="text-4xl mb-4 text-center text-blue-600"><i class="fas fa-microchip"></i></div>
         <h3 class="text-xl font-semibold text-center mb-2">Technology</h3>
-        <p class="text-gray-300 text-center">AI, software, and hardware innovations transforming global businesses.</p>
+        <p class="text-gray-600 text-center">AI, software, and hardware innovations transforming global businesses.</p>
       </div>
-      <div class="bg-gray-800 p-6 rounded-xl fade-in hover:scale-105 transition">
-        <div class="text-4xl mb-4 text-center"><i class="fas fa-hand-holding-usd"></i></div>
+      <div class="bg-white p-6 rounded-xl fade-in shadow hover:shadow-lg transition">
+        <div class="text-4xl mb-4 text-center text-green-600"><i class="fas fa-hand-holding-usd"></i></div>
         <h3 class="text-xl font-semibold text-center mb-2">Finance</h3>
-        <p class="text-gray-300 text-center">Global banking, fintech solutions, and investment innovations.</p>
+        <p class="text-gray-600 text-center">Global banking, fintech solutions, and investment innovations.</p>
       </div>
-      <div class="bg-gray-800 p-6 rounded-xl fade-in hover:scale-105 transition">
-        <div class="text-4xl mb-4 text-center"><i class="fas fa-leaf"></i></div>
+      <div class="bg-white p-6 rounded-xl fade-in shadow hover:shadow-lg transition">
+        <div class="text-4xl mb-4 text-center text-yellow-600"><i class="fas fa-leaf"></i></div>
         <h3 class="text-xl font-semibold text-center mb-2">Energy</h3>
-        <p class="text-gray-300 text-center">Sustainable energy technologies and solutions worldwide.</p>
+        <p class="text-gray-600 text-center">Sustainable energy technologies and solutions worldwide.</p>
       </div>
-      <div class="bg-gray-800 p-6 rounded-xl fade-in hover:scale-105 transition">
-        <div class="text-4xl mb-4 text-center"><i class="fas fa-heartbeat"></i></div>
+      <div class="bg-white p-6 rounded-xl fade-in shadow hover:shadow-lg transition">
+        <div class="text-4xl mb-4 text-center text-red-600"><i class="fas fa-heartbeat"></i></div>
         <h3 class="text-xl font-semibold text-center mb-2">Healthcare</h3>
-        <p class="text-gray-300 text-center">Innovative medical technologies and pharmaceutical solutions.</p>
+        <p class="text-gray-600 text-center">Innovative medical technologies and pharmaceutical solutions.</p>
       </div>
     </div>
   </section>
 
   <!-- Global Presence -->
-  <section class="py-20 px-6">
+  <section class="py-20 px-6 bg-gray-50">
     <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 fade-in">Global Presence</h2>
-    <div class="max-w-4xl mx-auto bg-gray-800 p-10 rounded-xl fade-in">
+    <div class="max-w-4xl mx-auto bg-white p-10 rounded-xl fade-in shadow">
       <div class="flex flex-wrap justify-center gap-4 mb-6">
-        <span class="px-4 py-2 rounded-full bg-gray-700 border border-gray-600 hover:bg-purple-700 transition">North America</span>
-        <span class="px-4 py-2 rounded-full bg-gray-700 border border-gray-600 hover:bg-purple-700 transition">Europe</span>
-        <span class="px-4 py-2 rounded-full bg-gray-700 border border-gray-600 hover:bg-purple-700 transition">Asia Pacific</span>
-        <span class="px-4 py-2 rounded-full bg-gray-700 border border-gray-600 hover:bg-purple-700 transition">Middle East</span>
-        <span class="px-4 py-2 rounded-full bg-gray-700 border border-gray-600 hover:bg-purple-700 transition">Africa</span>
-        <span class="px-4 py-2 rounded-full bg-gray-700 border border-gray-600 hover:bg-purple-700 transition">South America</span>
+        <span class="px-4 py-2 rounded-full bg-gray-100 border border-gray-300 hover:bg-blue-100 transition">North America</span>
+        <span class="px-4 py-2 rounded-full bg-gray-100 border border-gray-300 hover:bg-blue-100 transition">Europe</span>
+        <span class="px-4 py-2 rounded-full bg-gray-100 border border-gray-300 hover:bg-blue-100 transition">Asia Pacific</span>
+        <span class="px-4 py-2 rounded-full bg-gray-100 border border-gray-300 hover:bg-blue-100 transition">Middle East</span>
+        <span class="px-4 py-2 rounded-full bg-gray-100 border border-gray-300 hover:bg-blue-100 transition">Africa</span>
+        <span class="px-4 py-2 rounded-full bg-gray-100 border border-gray-300 hover:bg-blue-100 transition">South America</span>
       </div>
-      <p class="text-center text-gray-300">Headquartered in strategic global locations, Son LLC drives innovation across continents.</p>
+      <p class="text-center text-gray-600">Headquartered in strategic global locations, Son LLC drives innovation across continents.</p>
     </div>
   </section>
 
   <!-- Newsletter Section -->
-  <section class="py-20 px-6 bg-gray-900 text-center">
-    <div class="max-w-3xl mx-auto bg-gray-800 p-10 rounded-xl fade-in">
+  <section class="py-20 px-6 text-center">
+    <div class="max-w-3xl mx-auto bg-white p-10 rounded-xl fade-in shadow">
       <h2 class="text-3xl font-bold mb-4">Be the First to Know</h2>
-      <p class="text-lg mb-6 text-gray-300">Join our mailing list for updates on Son LLC’s latest innovations.</p>
+      <p class="text-lg mb-6 text-gray-600">Join our mailing list for updates on Son LLC’s latest innovations.</p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <input type="email" placeholder="Enter your email" class="px-4 py-3 rounded-md bg-gray-700 border border-gray-600 text-white focus:outline-none focus:border-purple-600 flex-grow max-w-md">
-        <button class="bg-purple-700 hover:bg-purple-600 px-6 py-3 rounded-md font-semibold">Notify Me</button>
+        <input type="email" placeholder="Enter your email" class="px-4 py-3 rounded-md bg-gray-100 border border-gray-300 focus:outline-none flex-grow max-w-md">
+        <button class="bg-blue-600 hover:bg-blue-500 px-6 py-3 rounded-md font-semibold text-white">Notify Me</button>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-900 text-gray-400 py-12 mt-10">
+  <footer class="bg-white text-gray-500 py-12 mt-10 shadow">
     <div class="max-w-6xl mx-auto px-6">
       <div class="flex flex-col md:flex-row justify-between items-center mb-6">
         <div class="flex items-center mb-4 md:mb-0">
-          <img src="assets/logo.png" alt="Son LLC Logo" class="w-10 h-10 mr-3">
-          <span class="font-semibold text-white text-lg">Son LLC</span>
+          <img src="assets/logo.png" alt="Son LLC Logo" class="small-logo mr-3">
+          <span class="font-semibold text-gray-900 text-lg">Son LLC</span>
         </div>
         <div class="flex space-x-6 text-2xl">
-          <a href="#" class="hover:text-purple-400 transition"><i class="fab fa-linkedin"></i></a>
-          <a href="#" class="hover:text-purple-400 transition"><i class="fab fa-twitter"></i></a>
-          <a href="#" class="hover:text-purple-400 transition"><i class="fab fa-instagram"></i></a>
-          <a href="#" class="hover:text-purple-400 transition"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="hover:text-blue-600 transition"><i class="fab fa-linkedin"></i></a>
+          <a href="#" class="hover:text-blue-600 transition"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="hover:text-blue-600 transition"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="hover:text-blue-600 transition"><i class="fab fa-youtube"></i></a>
         </div>
       </div>
-      <div class="text-center text-gray-500 text-sm">&copy; 2025 Son LLC. All rights reserved.</div>
+      <div class="text-center text-sm text-gray-400">&copy; 2025 Son LLC. All rights reserved.</div>
     </div>
   </footer>
 
