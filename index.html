@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Son LLC - Global Enterprise</title>
+  <title>Son LLC - Home</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.3/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
@@ -53,6 +53,14 @@
       opacity: 1;
       transform: translateY(0);
     }
+    .cta-button {
+      background: linear-gradient(to right, #8e2de2, #4a00e0);
+      transition: all 0.3s ease;
+    }
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(142, 45, 226, 0.3);
+    }
   </style>
 </head>
 <body class="flex flex-col min-h-screen">
@@ -64,19 +72,26 @@
       <span class="text-xl font-bold gradient-text">Son LLC</span>
     </div>
     <nav class="space-x-4">
-      <a href="https://SonLLC.github.io/Download" class="nav-button px-4 py-2 rounded-md border border-white hover:bg-white/20 transition">Download</a>
-      <a href="https://SonLLC.github.io/PP" class="nav-button px-4 py-2 rounded-md border border-white hover:bg-white/20 transition">Privacy Policy & Terms</a>
+      <a href="/Download/" class="nav-button px-4 py-2 rounded-md border border-white hover:bg-white/20 transition">Download</a>
+      <a href="/PP/" class="nav-button px-4 py-2 rounded-md border border-white hover:bg-white/20 transition">Privacy Policy & Terms</a>
     </nav>
   </header>
 
   <!-- Hero Section -->
   <section class="pt-32 pb-20 px-6 flex flex-col items-center text-center">
-    <div class="floating mb-10">
-      <img src="logo.jpg" alt="Son LLC Logo" class="w-48 h-48 rounded-full glow">
-    </div>
     <h1 class="text-6xl md:text-7xl font-bold mb-6">Son LLC</h1>
     <p class="text-2xl md:text-3xl mb-10 max-w-3xl">A Global Enterprise Powering Innovation Across Industries</p>
     <div class="soon-text mb-16">COMING SOON</div>
+    
+    <!-- CTA Buttons -->
+    <div class="flex flex-col sm:flex-row gap-6 mb-16">
+      <a href="/Download/" class="cta-button px-8 py-4 rounded-lg text-white font-bold text-lg flex items-center justify-center">
+        <i class="fas fa-download mr-2"></i> Download Now
+      </a>
+      <a href="/PP/" class="px-8 py-4 rounded-lg border border-purple-500 text-white font-bold text-lg hover:bg-purple-900/30 transition flex items-center justify-center">
+        <i class="fas fa-shield-alt mr-2"></i> Privacy & Terms
+      </a>
+    </div>
     
     <!-- Stats Section -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl w-full mt-10">
@@ -165,7 +180,7 @@
           <a href="#" class="hover:text-purple-400 transition"><i class="fab fa-youtube"></i></a>
         </div>
       </div>
-      <p class="text-gray-400">&copy; 2025 Son LLC. All rights reserved. A Global Enterprise.</p>
+      <p class="text-gray-400">&copy; 2025 Son LLC. All rights reserved.</p>
     </div>
   </footer>
 
