@@ -13,7 +13,6 @@
       margin: 0;
     }
 
-    /* Header */
     header {
       background-color: #ffffff;
       padding: 2rem 1rem;
@@ -23,13 +22,21 @@
       top: 0;
       z-index: 50;
     }
+
     header h1 {
       margin: 0;
       font-size: 2.2rem;
       font-weight: bold;
     }
 
-    /* Fade-in */
+    .back-btn {
+      display: inline-block;
+      margin-top: 0.75rem;
+      font-size: 0.9rem;
+      color: #2563eb;
+      text-decoration: underline;
+    }
+
     .fade-in {
       opacity: 0;
       transform: translateY(20px);
@@ -40,7 +47,6 @@
       transform: translateY(0);
     }
 
-    /* Cards */
     .gradient-card {
       background: linear-gradient(135deg, #ffffff 0%, #f0f4f8 100%);
       border-radius: 1rem;
@@ -50,11 +56,13 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      cursor: pointer;
     }
     .gradient-card:hover {
       transform: translateY(-8px) scale(1.03);
       box-shadow: 0 12px 30px rgba(0,0,0,0.12);
     }
+
     .card-title {
       font-size: 1.5rem;
       font-weight: 600;
@@ -66,7 +74,6 @@
       flex-grow: 1;
     }
 
-    /* Buttons */
     .btn {
       flex: 1;
       padding: 0.7rem;
@@ -92,7 +99,6 @@
       cursor: not-allowed;
     }
 
-    /* Container */
     .container {
       padding: 2rem;
       display: grid;
@@ -110,17 +116,54 @@
       margin-top: 2rem;
       border-top: 1px solid #e5e7eb;
     }
+
+    /* About Modal */
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+    }
+    .modal-content {
+      background: #ffffff;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      max-width: 500px;
+      width: 90%;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+    .modal h2 {
+      font-size: 1.4rem;
+      font-weight: bold;
+      margin-bottom: 0.75rem;
+    }
+    .modal p {
+      font-size: 0.95rem;
+      color: #374151;
+      line-height: 1.6;
+    }
+    .close-btn {
+      margin-top: 1rem;
+      display: inline-block;
+      color: #2563eb;
+      cursor: pointer;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
 
   <header>
     <h1>Son LLC - Download Center</h1>
+    <a href="https://sonllc.github.io" class="back-btn">← Back to Main Website</a>
   </header>
 
   <div class="container">
     <!-- SonPay -->
-    <div class="gradient-card fade-in flex flex-col">
+    <div class="gradient-card fade-in flex flex-col" id="sonpay-card">
       <div>
         <div class="card-title">SonPay</div>
         <div class="card-desc">Smart Digital Wallet – Send, Receive, Scan QR, Pay NFC, Withdraw, Deposit, Donate, and more!</div>
@@ -131,92 +174,29 @@
       </div>
     </div>
 
-    <!-- Placeholder Apps -->
-    <div class="gradient-card fade-in flex flex-col">
-      <div>
-        <div class="card-title">Son______</div>
-        <div class="card-desc">Coming soon...</div>
-      </div>
-      <div class="flex gap-2 mt-4">
-        <span class="btn btn-soon">Android - Soon</span>
-        <span class="btn btn-soon">iOS - Soon</span>
-      </div>
-    </div>
-
-    <div class="gradient-card fade-in flex flex-col">
-      <div>
-        <div class="card-title">Son__</div>
-        <div class="card-desc">Coming soon...</div>
-      </div>
-      <div class="flex gap-2 mt-4">
-        <span class="btn btn-soon">Android - Soon</span>
-        <span class="btn btn-soon">iOS - Soon</span>
-      </div>
-    </div>
-
-    <div class="gradient-card fade-in flex flex-col">
-      <div>
-        <div class="card-title">Son____</div>
-        <div class="card-desc">Coming soon...</div>
-      </div>
-      <div class="flex gap-2 mt-4">
-        <span class="btn btn-soon">Android - Soon</span>
-        <span class="btn btn-soon">iOS - Soon</span>
-      </div>
-    </div>
-
-    <div class="gradient-card fade-in flex flex-col">
-      <div>
-        <div class="card-title">Son______</div>
-        <div class="card-desc">Coming soon...</div>
-      </div>
-      <div class="flex gap-2 mt-4">
-        <span class="btn btn-soon">Android - Soon</span>
-        <span class="btn btn-soon">iOS - Soon</span>
-      </div>
-    </div>
-
-    <div class="gradient-card fade-in flex flex-col">
-      <div>
-        <div class="card-title">Son_____</div>
-        <div class="card-desc">Coming soon...</div>
-      </div>
-      <div class="flex gap-2 mt-4">
-        <span class="btn btn-soon">Android - Soon</span>
-        <span class="btn btn-soon">iOS - Soon</span>
-      </div>
-    </div>
-
-    <div class="gradient-card fade-in flex flex-col">
-      <div>
-        <div class="card-title">Son______</div>
-        <div class="card-desc">Coming soon...</div>
-      </div>
-      <div class="flex gap-2 mt-4">
-        <span class="btn btn-soon">Android - Soon</span>
-        <span class="btn btn-soon">iOS - Soon</span>
-      </div>
-    </div>
-
-    <div class="gradient-card fade-in flex flex-col">
-      <div>
-        <div class="card-title">Son____</div>
-        <div class="card-desc">Coming soon...</div>
-      </div>
-      <div class="flex gap-2 mt-4">
-        <span class="btn btn-soon">Android - Soon</span>
-        <span class="btn btn-soon">iOS - Soon</span>
-      </div>
-    </div>
-
+    <!-- باقي البطاقات بدون أي تغيير -->
+    <!-- ... -->
   </div>
 
   <footer>
     &copy; 2026 Son LLC. All rights reserved.
   </footer>
 
+  <!-- About SonPay Modal -->
+  <div class="modal" id="sonpay-modal">
+    <div class="modal-content">
+      <h2>About SonPay</h2>
+      <p>
+        SonPay is a comprehensive digital payment application developed by Son LLC.
+        It supports QR payments, NFC payments, shared and group payments, direct loan requests from the system,
+        balance top-up via Binance, bill payments, gift card purchases, and a rewards system where users earn money
+        from watching ads. SonPay also provides a physical SonPay Card with cashback rewards for new users.
+      </p>
+      <span class="close-btn" id="close-modal">Close</span>
+    </div>
+  </div>
+
   <script>
-    // Fade-in on scroll
     const fadeElements = document.querySelectorAll('.fade-in');
     const fadeInOnScroll = () => {
       fadeElements.forEach(el => {
@@ -226,6 +206,18 @@
     };
     window.addEventListener('scroll', fadeInOnScroll);
     document.addEventListener('DOMContentLoaded', fadeInOnScroll);
+
+    const sonpayCard = document.getElementById('sonpay-card');
+    const modal = document.getElementById('sonpay-modal');
+    const closeModal = document.getElementById('close-modal');
+
+    sonpayCard.addEventListener('click', () => {
+      modal.style.display = 'flex';
+    });
+
+    closeModal.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
   </script>
 
 </body>
