@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SonPay</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.3/dist/tailwind.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --blue:   #2563eb;
+  --green:  #10b981;
+  --dark:   #0f172a;
+  --card:   #ffffff;
+  --muted:  #64748b;
+  --border: #e2e8f0;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+body {
+  font-family:'DM Sans',sans-serif;
+  background:#f8fafc;
+  color:var(--dark);
+}
+
+/* ── Promo ── */
+.promo-banner {
+  background: linear-gradient(90deg,#1d4ed8 0%,#059669 100%);
+  color:#fff;
+  text-align:center;
+  padding:13px 20px;
+  font-size:.9rem;
+  font-weight:500;
+  letter-spacing:.01em;
+}
+.promo-code {
+  display:inline-block;
+  background:#fff;
+  color:#1d4ed8;
+  font-weight:800;
+  padding:1px 12px;
+  border-radius:999px;
+  font-size:.95rem;
+  letter-spacing:.06em;
+  margin:0 4px;
+}
+
+/* ── Navbar ── */
+header {
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  padding:14px 32px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.logo-wrap { display:flex; align-items:center; gap:10px; }
+.logo-wrap img { width:40px; height:40px; border-radius:10px; }
+.logo-name {
+  font-family:'Syne',sans-serif;
+  font-weight:800;
+  font-size:1.3rem;
+  background:linear-gradient(90deg,var(--blue),var(--green));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+header a.nav-link {
+  font-size:.9rem;
+  font-weight:600;
+  color:var(--blue);
+  text-decoration:none;
+}
+header a.nav-link:hover { text-decoration:underline; }
+
+/* ── Hero ── */
+.hero {
+  min-height:88vh;
+  background:linear-gradient(140deg,#0f172a 0%,#1e3a8a 50%,#064e3b 100%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:60px 20px;
+  position:relative;
+  overflow:hidden;
+}
+.hero::before {
+  content:'';
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(ellipse 60% 50% at 80% 20%, rgba(16,185,129,.2) 0%,transparent 60%),
+    radial-gradient(ellipse 50% 60% at 15% 85%, rgba(59,130,246,.22) 0%,transparent 55%);
+  pointer-events:none;
+}
+.hero::after {
+  content:'';
+  position:absolute;
+  top:-120px; right:-120px;
+  width:500px; height:500px;
+  background:rgba(37,99,235,.08);
+  border-radius:50%;
+  pointer-events:none;
+}
+
+.hero-card {
+  position:relative;
+  z-index:2;
+  max-width:700px;
+  width:100%;
+  text-align:center;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:28px;
+  padding:52px 44px;
+  backdrop-filter:blur(20px);
+  box-shadow:0 40px 100px rgba(0,0,0,.35);
+}
+.hero-logo {
+  width:92px; height:92px;
+  border-radius:20px;
+  margin:0 auto 24px;
+  display:block;
+  box-shadow:0 16px 48px rgba(0,0,0,.35);
+}
+.hero-title {
+  font-family:'Syne',sans-serif;
+  font-size:3.2rem;
+  font-weight:800;
+  color:#fff;
+  line-height:1.05;
+  letter-spacing:-.04em;
+  margin-bottom:12px;
+}
+.hero-sub {
+  color:rgba(255,255,255,.65);
+  font-size:1.1rem;
+  margin-bottom:32px;
+  font-weight:300;
+}
+.badges {
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  justify-content:center;
+  margin-bottom:36px;
+}
+.badge {
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.18);
+  color:#fff;
+  font-size:.76rem;
+  font-weight:600;
+  padding:5px 14px;
+  border-radius:999px;
+  letter-spacing:.03em;
+}
+.btn-row { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+.btn-android {
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  background:linear-gradient(135deg,#22c55e,#15803d);
+  color:#fff;
+  font-weight:700;
+  font-size:1rem;
+  padding:15px 34px;
+  border-radius:14px;
+  text-decoration:none;
+  box-shadow:0 8px 28px rgba(34,197,94,.35);
+  transition:transform .2s,box-shadow .2s;
+}
+.btn-android:hover { transform:translateY(-2px); box-shadow:0 14px 36px rgba(34,197,94,.5); }
+.btn-ios {
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  background:rgba(255,255,255,.08);
+  border:1.5px solid rgba(255,255,255,.25);
+  color:rgba(255,255,255,.6);
+  font-weight:600;
+  font-size:1rem;
+  padding:15px 34px;
+  border-radius:14px;
+  cursor:default;
+}
+
+/* ── Section ── */
+.section-wrap {
+  max-width:1200px;
+  margin:0 auto;
+  padding:80px 24px;
+}
+.section-title {
+  font-family:'Syne',sans-serif;
+  font-size:2.4rem;
+  font-weight:800;
+  text-align:center;
+  margin-bottom:12px;
+  letter-spacing:-.03em;
+}
+.section-sub {
+  text-align:center;
+  color:var(--muted);
+  font-size:1rem;
+  max-width:520px;
+  margin:0 auto 56px;
+  line-height:1.7;
+}
+
+/* ── Category heading ── */
+.cat-label {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin:0 0 24px;
+  font-family:'Syne',sans-serif;
+  font-size:1rem;
+  font-weight:700;
+  color:var(--muted);
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.cat-label::after {
+  content:'';
+  flex:1;
+  height:1px;
+  background:var(--border);
+}
+
+/* ── Feature grid ── */
+.feat-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+  gap:20px;
+  margin-bottom:56px;
+}
+
+/* ── Feature card ── */
+.feat {
+  background:#fff;
+  border-radius:16px;
+  padding:26px;
+  border:1px solid var(--border);
+  box-shadow:0 2px 8px rgba(0,0,0,.04);
+  transition:transform .25s, box-shadow .25s, border-color .25s;
+  position:relative;
+  overflow:hidden;
+}
+.feat::before {
+  content:'';
+  position:absolute;
+  top:0; left:0;
+  width:4px;
+  height:100%;
+  background:var(--accent, var(--blue));
+  border-radius:4px 0 0 4px;
+}
+.feat:hover {
+  transform:translateY(-4px);
+  box-shadow:0 12px 32px rgba(0,0,0,.1);
+  border-color:rgba(37,99,235,.18);
+}
+
+.feat-head {
+  display:flex;
+  align-items:flex-start;
+  gap:14px;
+  margin-bottom:10px;
+}
+.feat-icon {
+  width:42px; height:42px;
+  border-radius:10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+  font-size:1.1rem;
+}
+.feat-title {
+  font-family:'Syne',sans-serif;
+  font-weight:700;
+  font-size:1rem;
+  line-height:1.3;
+  margin-bottom:3px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.feat-short {
+  font-size:.875rem;
+  color:var(--muted);
+  line-height:1.6;
+}
+
+.badge-new {
+  display:inline-block;
+  background:linear-gradient(90deg,var(--blue),var(--green));
+  color:#fff;
+  font-size:.6rem;
+  font-weight:700;
+  padding:2px 8px;
+  border-radius:999px;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  vertical-align:middle;
+}
+.badge-business {
+  display:inline-block;
+  background:linear-gradient(90deg,#7c3aed,#4f46e5);
+  color:#fff;
+  font-size:.6rem;
+  font-weight:700;
+  padding:2px 8px;
+  border-radius:999px;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  vertical-align:middle;
+}
+
+/* expand */
+.expand-btn {
+  background:none;
+  border:none;
+  cursor:pointer;
+  color:var(--blue);
+  font-size:.8rem;
+  font-weight:600;
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  margin-top:12px;
+  padding:0;
+  font-family:'DM Sans',sans-serif;
+}
+.expand-btn:hover { opacity:.75; }
+.expand-btn .arr { transition:transform .25s; }
+.expand-btn.open .arr { transform:rotate(180deg); }
+.detail {
+  display:none;
+  margin-top:12px;
+  font-size:.85rem;
+  color:#475569;
+  line-height:1.75;
+  border-top:1px solid var(--border);
+  padding-top:12px;
+}
+.detail.open { display:block; }
+
+/* ── Accent colour helpers ── */
+.ac-blue   { --accent:#2563eb; }
+.ac-green  { --accent:#10b981; }
+.ac-purple { --accent:#7c3aed; }
+.ac-amber  { --accent:#f59e0b; }
+.ac-rose   { --accent:#f43f5e; }
+.ac-sky    { --accent:#0ea5e9; }
+.ac-slate  { --accent:#475569; }
+.ac-teal   { --accent:#14b8a6; }
+
+.ic-blue   { background:#eff6ff; color:#2563eb; }
+.ic-green  { background:#ecfdf5; color:#059669; }
+.ic-purple { background:#f5f3ff; color:#7c3aed; }
+.ic-amber  { background:#fffbeb; color:#d97706; }
+.ic-rose   { background:#fff1f2; color:#e11d48; }
+.ic-sky    { background:#f0f9ff; color:#0284c7; }
+.ic-slate  { background:#f1f5f9; color:#475569; }
+.ic-teal   { background:#f0fdfa; color:#0f766e; }
+.ic-indigo { background:#eef2ff; color:#4338ca; }
+.ic-orange { background:#fff7ed; color:#c2410c; }
+.ic-pink   { background:#fdf2f8; color:#be185d; }
+.ic-yellow { background:#fefce8; color:#a16207; }
+
+/* ── Footer ── */
+footer {
+  background:#0f172a;
+  color:#94a3b8;
+  text-align:center;
+  padding:48px 24px;
+}
+.foot-logo {
+  font-family:'Syne',sans-serif;
+  font-size:1.6rem;
+  font-weight:800;
+  color:#fff;
+  margin-bottom:16px;
+}
+.foot-socials {
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  margin-bottom:24px;
+  font-size:1.3rem;
+}
+.foot-socials a { color:#475569; transition:color .2s; text-decoration:none; }
+.foot-socials a:hover { color:#fff; }
+.foot-copy { font-size:.8rem; }
+
+@media(max-width:600px){
+  .hero-card { padding:36px 20px; }
+  .hero-title { font-size:2.4rem; }
+  .section-title { font-size:1.8rem; }
+  .feat-grid { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- Promo Banner -->
+<div class="promo-banner">
+  <i class="fa-solid fa-gift mr-2"></i>
+  New user? Go to <strong>E-Services → Gift Cards → Redeem Card</strong> and enter code <span class="promo-code">Welcome</span> to get <strong>$2.00</strong> added to your wallet — for free!
+</div>
+
+<!-- Navbar -->
+<header>
+  <div class="logo-wrap">
+    <img src="/assets/SonPay.png" alt="SonPay">
+    <span class="logo-name">SonPay</span>
+  </div>
+  <a href="https://sonllc.github.io" class="nav-link">Son LLC ↗</a>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-card">
+    <img src="/assets/SonPay.png" class="hero-logo" alt="SonPay Logo">
+    <h1 class="hero-title">SonPay</h1>
+    <p class="hero-sub">Smart digital payments — fast, secure, and built for everyone.</p>
+    <div class="badges">
+      <span class="badge"><i class="fa-solid fa-shield-halved"></i> Secure PIN Lock</span>
+      <span class="badge"><i class="fa-solid fa-bolt"></i> Instant Transfers</span>
+      <span class="badge"><i class="fa-solid fa-globe"></i> Multi-Currency</span>
+      <span class="badge"><i class="fa-solid fa-qrcode"></i> QR &amp; NFC</span>
+      <span class="badge"><i class="fa-solid fa-building"></i> Business Hub</span>
+    </div>
+    <div class="btn-row">
+      <a href="/Download/SonPay.apk" class="btn-android">
+        <i class="fa-brands fa-android text-xl"></i> Download for Android
+      </a>
+      <span class="btn-ios">
+        <i class="fa-brands fa-apple text-xl"></i> iOS — Coming Soon
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<div class="section-wrap">
+
+  <h2 class="section-title">Everything SonPay Can Do</h2>
+  <p class="section-sub">All features explained in plain language — no tech jargon, just what matters to you.</p>
+
+  <!-- ── CORE PAYMENTS ── -->
+  <div class="cat-label"><i class="fa-solid fa-wallet text-blue-500"></i> Core Payments</div>
+  <div class="feat-grid">
+
+    <!-- Send Money -->
+    <div class="feat ac-blue">
+      <div class="feat-head">
+        <div class="feat-icon ic-blue"><i class="fa-solid fa-paper-plane"></i></div>
+        <div>
+          <div class="feat-title">Send Money</div>
+          <p class="feat-short">Transfer money to anyone on SonPay instantly using their account number.</p>
+        </div>
+      </div>
+      <button class="expand-btn" onclick="toggle(this)">How it works <i class="fa-solid fa-chevron-down arr"></i></button>
+      <div class="detail">
+        Open the <strong>Send</strong> page and type the recipient's 8-digit SonPay account number. SonPay shows you their name and verified badge so you know you're sending to the right person. Enter the amount, add an optional note (like "for rent"), and tap Send. If you and the recipient use different currencies, SonPay converts the amount automatically at the current exchange rate — no manual calculations needed. A receipt is generated the moment the transfer is complete.
+      </div>
+    </div>
+
+    <!-- QR Payments -->
+    <div class="feat ac-blue">
+      <div class="feat-head">
+        <div class="feat-icon ic-blue"><i class="fa-solid fa-qrcode"></i></div>
+        <div>
+          <div class="feat-title">QR Code Payments</div>
+          <p class="feat-short">Show your QR code and get paid instantly — or scan someone else's to pay them.</p>
+        </div>
+      </div>
+      <button class="expand-btn" onclick="toggle(this)">How it works <i class="fa-solid fa-chevron-down arr"></i></button>
+      <div class="detail">
+        Go to <strong>Top-Up → Receive</strong> to see your personal QR code. You can add a specific amount so the payer sees exactly how much to send. The person paying opens SonPay, taps <strong>Send → QR Pay</strong>, and scans your code. Payment is confirmed in seconds. No need to read out account numbers or spell your name — just show the code. Works perfectly at markets, cafés, or splitting bills with friends.
+      </div>
+    </div>
+
+    <!-- NFC Payments -->
+    <div class="feat ac-green">
+      <div class="feat-head">
+        <div class="feat-icon ic-green"><i class="fa-solid fa-wifi"></i></div>
+        <div>
+          <div class="feat-title">NFC Tap-to-Pay</div>
+          <p class="feat-short">Tap your phone against another phone or NFC tag to send or receive money — no scanning needed.</p>
+        </div>
+      </div>
+      <button class="expand-btn" onclick="toggle(this)">How it works <i class="fa-solid fa-chevron-down arr"></i></button>
+      <div class="detail">
+        The recipient writes their payment info to an NFC tag (or uses their phone directly). The sender just taps their phone on the tag or the other phone — SonPay reads the payment details and shows a confirmation screen. One tap to pay. This is the fastest way to accept payment face-to-face: at a shop counter, street stall, or any in-person situation. Works on all Android phones with NFC hardware.
+      </div>
+    </div>
+
+    <!-- Request Payment -->
+    <div class="feat ac-green">
+      <div class="feat-head">
+        <div class="feat-icon ic-green"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+        <div>
+          <div class="feat-title">Request Payment</div>
+          <p class="feat-short">Ask someone to pay you — they get a notification and can accept or decline with one tap.</p>
+        </div>
+      </div>
+      <button class="expand-btn" onclick="toggle(this)">How it works <i class="fa-solid fa-chevron-down arr"></i></button>
+      <div class="detail">
+        Go to <strong>Request Payment</strong>, enter the other person's account number, type the amount and a short note (like "dinner last night"). They instantly receive a notification with all the details. They can pay with one tap or decline. You can see all your pending, paid, and declined requests at any time. No more awkward reminders — just send a request and let SonPay handle it.
+      </div>
+    </div>
+
+    <!-- Split Bill -->
+    <div class="feat ac-purple">
+      <div class="feat-head">
+        <div class="feat-icon ic-purple"><i class="fa-solid fa-people-group"></i></div>
+        <div>
+          <div class="feat-title">Split Bill</div>
+          <p class="feat-short">Divide any shared expense equally among friends — SonPay notifies everyone and collects their share automatically.</p>
+        </div>
+      </div>
+      <button class="expand-btn" onclick="toggle(this)">How it works <i class="fa-solid fa-chevron-down arr"></i></button>
+      <div class="detail">
+        Go to <strong>Send → Split Payment</strong>. Choose the recipient (the person or place being paid), add all participants by their account numbers, and enter the total amount. SonPay divides it equally and sends each person a payment request with their exact share. You can track who has paid and who is still pending — all in real time. Currency differences between participants are handled automatically.
+      </div>
+    </div>
+
+  </div><!-- /core payments grid -->
+
+
+  <!-- ── WALLET & BALANCE ── -->
+  <div class="cat-label"><i class="fa-solid fa-coins text-amber-500"></i> Wallet &amp; Balance</div>
+  <div class="feat-grid">
+
+    <!-- Balance Card -->
+    <div class="feat ac-blue">
+      <div class="feat-head">
+        <div class="feat-icon ic-blue"><i class="fa-solid fa-wallet"></i></div>
+        <div>
+          <div class="feat-title">Your Wallet Balance</div>
+          <p class="feat-short">See your current balance at a glance on the home screen — always up to date.</p>
+        </div>
+      </div>
+      <button class="expand-btn" onclick="toggle(this)">How it works <i class="fa-solid fa-chevron-down arr"></i></button>
+      <div class="detail">
+        The moment you open SonPay, your home screen shows your current balance in your chosen currency. Pull down to refresh at any time. The balance updates in real time whenever you receive or send money — no need to log out and back in. Your currency is set when you register and can be used across all transactions.
+      </div>
+    </div>
+
+    <!-- Hide Balance -->
+    <div class="feat ac-slate">
+      <div class="feat-head">
+        <div class="feat-icon ic-slate"><i class="fa-solid fa-eye-slash"></i></div>
+        <div>
+          <div class="feat-title">Hide Balance</div>
+          <p class="feat-short">Tap the eye icon to hide your balance from others — useful in public or when sharing your screen.</p>
+        </div>
+      </div>
+      <button class="expand-btn" onclick="toggle(this)">How it works <i class="fa-solid fa-chevron-down arr"></i></button>
+      <div class="detail">
+        On the home screen, tap the eye icon next to your balance. It instantly replaces the number with <strong>* * * * * *</strong>. Tap again to reveal it. SonPay remembers your preference — if you hid it before closing the app, it stays hidden when you reopen it. Great for using the app in public, in a meeting, or any time you don't want someone to see your funds at a glance.
+      </div>
+    </div>
+
+    <!-- Multi-Currency -->
+    <div class="feat ac-green">
+      <div class="feat-head">
+        <div class="feat-icon ic-green"><i class="fa-solid fa-globe"></i></div>
+        <div>
+          <div class="feat-title">Multi-Currency Support</div>
+          <p class="feat-short">Send and receive in any currency — SonPay converts the amount automatically at the real exchange rate.</p>
+        </div>
+      </div>
+      <button class="expand-btn" onclick="toggle(this)">How it works <i class="fa-solid fa-chevron-down arr"></i></button>
+      <div class="detail">
+        Every SonPay account has a home currency (like USD, EUR, SAR, etc.) chosen at registration. When you send money to someone with a different currency, SonPay fetches the live exchange rate and converts the amount automatically. Both parties see the original amount and the converted amount in the transaction details, along with the exact exchange rate used. No hidden fees or surprises.
+      </div>
+    </div>
+
+    <!-- Binance USDT Top-Up -->
+    <div class="feat ac-amber">
+      <div class="feat-head">
+        <div class="feat-icon ic-yellow"><i class="fa-solid fa-coins"></i></div>
+        <div>
+          <div class="feat-title">Top-Up from Binance (Crypto)</div>
+          <p class="feat-short">Add money to your wallet using USDT from your Binance account — no bank needed.</p>
+        </div>
+      </div>
+      <button class="expand-btn" onclick="toggle(this)">How it works <i class="fa-solid fa-chevron-down arr"></i></button>
+      <div class="detail">
+        Go to <strong>Top-Up → Binance</strong>. You'll see a TRC20 wallet address — send USDT from your Binance account to that address. Then come back to SonPay, enter the amount you sent, and tap <strong>Verify Deposit</strong>. SonPay checks your Binance history (last 3 days) and adds the equivalent to your wallet in your own currency using the real-time exchange rate. A 1% tolerance covers network fees automatically.
+      </div>
+    </div>
+
+    <!-- Earn by Watching Ads -->
+    <div class="feat ac-amber">
+      <div class="feat-head">
+        <div class="feat-icon ic-amber"><i class="fa-solid fa-bullhorn"></i></div>
+        <div>
+          <div class="feat-title">Earn Money by Watching Ads</div>
+          <p class="feat-short">Watch a short video ad and earn $0.50 directly into your wallet — up to 5 times a day.</p>
+        </div>
+      </div>
+      <button class="expand-btn" onclick="toggle(this)">How it works <i class="fa-solid fa-chevron-down arr"></i></button>
+      <div class="detail">
+        Go to <strong>Top-Up → Earn</strong> and tap <strong>Watch Ad &amp; Earn</strong>. A short video plays — when it finishes, $0.50 (converted to your currency) is added to your wallet instantly. You can do this up to <strong>5 times per day</strong>, earning up to $2.50 daily just from watching ads. The earnings show immediately in your transaction history. It's a completely free and effortless way to top up your balance.
+      </div>
+    </div>
+
+    <!-- Welcome Bonus -->
+    <div class="feat ac-rose">
+      <div class="feat-head">
+        <div class="feat-icon ic-pink"><i class="fa-solid fa-hand-holding-heart"></i></div>
+        <div>
+          <div class="feat-title">Welcome Bonus — $2.00 Free <span class="badge-new">New Users</span></div>
+          <p class="feat-short">Every new user gets $2.00 for free — just redeem the code <strong>Welcome</strong> in Gift Cards.</p>
+        </div>
+      </div>
+      <button class="expand-btn" onclick="toggle(this)">How it works <i class="fa-solid fa-chevron-down arr"></i></button>
+      <div class="detail">
+        After creating your account, go to <strong>E-Services → Gift Cards → Redeem Card</strong> and enter the code <strong>Welcome</strong>. You'll instantly receive $2.00 in your wallet currency — no conditions, no waiting. Use it to try any feature: send money, pay with QR, or cover part of a bill payment. The bonus is credited once per new account.
+      </div>
+    </div>
+
+  </div><!-- /wallet grid -->
+
+
+  <!-- ── SECURITY ── -->
+  <div class="cat-label"><i class="fa-solid fa-shield-halved text-slate-600"></i> Security &amp; Account</div>
+  <div class="feat-grid">
+
+    <!-- PIN Lock -->
+    <div class="feat ac-slate">
+      <div class="feat-head">
+        <div class="feat-icon ic-slate"><i class="fa-solid fa-lock"></i></div>
+        <div>
+          <div class="feat-title">PIN Security Lock</div>
+          <p class="feat-short">Every login is protected by a 4-digit PIN — your wallet stays locked even if someone has your phone.</p>
+        </div>
+      </div>
+      <button class="expand-btn" onclick="toggle(this)">How it works <i class="fa-solid fa-chevron-down arr"></i></button>
+      <div class="detail">
+        After entering your email and password, SonPay asks for a 4-digit PIN before showing your wallet. You set and change this PIN any time from <strong>Settings → Security</strong>. A default PIN of <strong>0000</strong> is assigned on first login — SonPay will immediately prompt you to change it. Your PIN is stored as an encrypted hash; no one (not even the SonPay team) can see the actual digits.
+      </div>
+    </div>
+
+    <!-- Login Options -->
+    <div class="feat ac-sky">
+      <div class="feat-head">
+        <div class="feat-icon ic-sky"><i class="fa-solid fa-right-to-bracket"></i></div>
+        <div>
+          <div class="feat-title">3 Ways to Log In</div>
+          <p class="feat-short">Log in with your email, your account number, or your Google account — whatever's easiest for you.</p>
+        </div>
+      </div>
+      <button class="expand-btn" onclick="toggle(this)">How it works <i class="fa-solid fa-chevron-down arr"></i></button>
+      <div class="detail">
+        On the login screen you'll see two tabs: <strong>Email</strong> and <strong>Account Number</strong>. Use email if you remember it; use your 8-digit SonPay account number if you've forgotten which email you used. There's also a <strong>Sign in with Google</strong> button for one-tap access. From the Profile page you can link or unlink your Google account at any time. All three methods go through the same PIN verification step for added security.
+      </div>
+    </div>
+
+    <!-- Verified Badge -->
+    <div class="feat ac-blue">
+      <div class="feat-head">
+        <div class="feat-icon ic-blue"><i class="fa-solid fa-circle-check"></i></div>
+        <div>
+          <div class="feat-title">Verified Badge</div>
+          <p class="feat-short">A blue checkmark appears on official and trusted accounts so you always know who you're dealing with.</p>
+        </div>
+      </div>
+      <button class="expand-btn" onclick="toggle(this)">How it works <i class="fa-solid fa-chevron-down arr"></i></button>
+      <div class="detail">
+        When an account is officially verified by Son LLC, a distinctive blue badge appears next to their name everywhere in SonPay — in the navigation bar, on the transfer confirmation screen, in transaction history, in payment requests, in split bills, and even on PDF receipts. This helps you instantly recognise official businesses, merchants, and SonPay partners, and avoid sending money to the wrong person.
+      </div>
+    </div>
+
+    <!-- Change Account Number -->
+    <div class="feat ac-amber">
+      <div class="feat-head">
+        <div class="feat-icon ic-orange"><i class="fa-solid fa-hashtag"></i></div>
+        <div>
+          <div class="feat-title">Choose Your Account Number <span class="badge-new">New</span></div>
+          <p class="feat-short">Don't like the random number you were assigned? Pick your own 8-digit SonPay account number.</p>
+        </div>
+      </div>
+      <button class="expand-btn" onclick="toggle(this)">How it works <i class="fa-solid fa-chevron-down arr"></i></button>
+      <div class="detail">
+        Go to <strong>Profile → Account Settings → Change Account Number</strong>. Enter any 8-digit number you'd like (e.g. your birthday, a lucky number). SonPay checks if it's already taken — if it's free, the change is instant. Your new number works right away for receiving payments. Note: your old number will stop working after the change, so let your contacts know. This can be done once every 90 days.
+      </div>
+    </div>
+
+  </div><!-- /security grid -->
+
+
+  <!-- ── TRANSACTIONS ── -->
+  <div class="cat-label"><i class="fa-solid fa-list-ul text-emerald-600"></i> Transaction History</div>
+  <div class="feat-grid">
+
+    <!-- Color-coded transactions -->
+    <div class="feat ac-green">
+      <div class="feat-head">
+        <div class="feat-icon ic-green"><i class="fa-solid fa-arrow-right-arrow-left"></i></div>
+        <div>
+          <div class="feat-title">Color-Coded Transactions</div>
+          <p class="feat-short">Money coming in is green (+). Money going out is red (−). Your history is clear at a glance.</p>
+        </div>
+      </div>
+      <button class="expand-btn" onclick="toggle(this)">How it works <i class="fa-solid fa-chevron-down arr"></i></button>
+      <div class="detail">
+        In your transaction history, every entry is color-coded based on direction. When money arrives in your account, the amount appears in <strong>green with a + sign</strong>. When you send money out, it shows in <strong>red with a − sign</strong>. This applies to all types — transfers, QR payments, NFC, bill payments, split bills, and more. You can see at a glance whether your balance went up or down without reading every detail.
+      </div>
+    </div>
+
+    <!-- Unread notification dot -->
+    <div class="feat ac-rose">
+      <div class="feat-head">
+        <div class="feat-icon ic-rose"><i class="fa-solid fa-bell"></i></div>
+        <div>
+          <div class="feat-title">Unread Transaction Alerts</div>
+          <p class="feat-short">A red dot on the Transactions tab tells you when new money has arrived — never miss a payment.</p>
+        </div>
+      </div>
+      <button class="expand-btn" onclick="toggle(this)">How it works <i class="fa-solid fa-chevron-down arr"></i></button>
+      <div class="detail">
+        Whenever you receive a payment, a small red dot appears on the Transactions icon in the bottom navigation bar. The dot disappears once you open and view the transaction. This way you always know instantly when money arrives — even without push notifications enabled on your device.
+      </div>
+    </div>
+
+    <!-- PDF Receipt -->
+    <div class="feat ac-rose">
+      <div class="feat-head">
+        <div class="feat-icon ic-rose"><i class="fa-solid fa-file-pdf"></i></div>
+        <div>
+          <div class="feat-title">PDF Transaction Receipt</div>
+          <p class="feat-short">Download a professional PDF receipt for any transaction — ready to share or save for your records.</p>
+        </div>
+      </div>
+      <button class="expand-btn" onclick="toggle(this)">How it works <i class="fa-solid fa-chevron-down arr"></i></button>
+      <div class="detail">
+        Open any transaction from your history and tap the <strong>PDF</strong> button. SonPay generates a formatted receipt that includes: the SonPay logo, transaction ID, date and time, amount with full currency conversion details, sender and recipient names (with verified badges), and the transaction status. Save it to your phone or open it in any PDF app. Useful for expense reports, business records, or simply keeping proof of a payment.
+      </div>
+    </div>
+
+    <!-- Real-time push notifications -->
+    <div class="feat ac-sky">
+      <div class="feat-head">
+        <div class="feat-icon ic-sky"><i class="fa-solid fa-mobile-screen-button"></i></div>
+        <div>
+          <div class="feat-title">Instant Push Notifications</div>
+          <p class="feat-short">Get notified the moment money arrives, a payment request is sent, or a split bill is settled.</p>
+        </div>
+      </div>
+      <button class="expand-btn" onclick="toggle(this)">How it works <i class="fa-solid fa-chevron-down arr"></i></button>
+      <div class="detail">
+        SonPay sends a push notification to the recipient's phone every time a transfer, QR payment, NFC payment, split bill share, or payment request is completed. The notification shows the sender's name and amount so you always know who paid you without even opening the app. Employees also receive a notification when their salary is processed by a business account.
+      </div>
+    </div>
+
+  </div><!-- /transactions grid -->
+
+
+  <!-- ── CONVENIENCE ── -->
+  <div class="cat-label"><i class="fa-solid fa-star text-yellow-500"></i> Convenience &amp; Accessibility</div>
+  <div class="feat-grid">
+
+    <!-- Beneficiaries -->
+    <div class="feat ac-amber">
+      <div class="feat-head">
+        <div class="feat-icon ic-yellow"><i class="fa-solid fa-star"></i></div>
+        <div>
+          <div class="feat-title">Saved Contacts &amp; Quick Send</div>
+          <p class="feat-short">Save your frequent contacts once — then send money to them in a single tap, no typing needed.</p>
+        </div>
+      </div>
+      <button class="expand-btn" onclick="toggle(this)">How it works <i class="fa-solid fa-chevron-down arr"></i></button>
+      <div class="detail">
+        The <strong>Beneficiaries</strong> page has two smart lists. The <strong>Saved</strong> tab lets you add contacts by account number and give them a nickname. The <strong>Frequent</strong> tab automatically shows the people you transfer to most often, ranked by number of transactions — no setup needed. On both lists, tap the send arrow next to any contact to jump straight to a pre-filled transfer screen where you only need to enter the amount.
+      </div>
+    </div>
+
+    <!-- Dark Mode -->
+    <div class="feat ac-slate">
+      <div class="feat-head">
+        <div class="feat-icon ic-slate"><i class="fa-solid fa-moon"></i></div>
+        <div>
+          <div class="feat-title">Dark Mode</div>
+          <p class="feat-short">Switch to a sleek dark theme — easier on the eyes at night and saves battery on OLED screens.</p>
+        </div>
+      </div>
+      <button class="expand-btn" onclick="toggle(this)">How it works <i class="fa-solid fa-chevron-down arr"></i></button>
+      <div class="detail">
+        Enable Dark Mode from <strong>Settings → Appearance</strong>. Every screen — home, transfer, transactions, support chat — is fully optimised for dark mode with carefully balanced contrast so nothing looks washed out. For phones with OLED displays, dark mode also reduces battery usage. SonPay can follow your phone's system setting automatically, so it switches with the rest of your apps.
+      </div>
+    </div>
+
+    <!-- Force Update -->
+    <div class="feat ac-blue">
+      <div class="feat-head">
+        <div class="feat-icon ic-blue"><i class="fa-solid fa-circle-arrow-up"></i></div>
+        <div>
+          <div class="feat-title">Automatic Update Check</div>
+          <p class="feat-short">SonPay checks for new versions every time you open it and guides you through updating instantly.</p>
+        </div>
+      </div>
+      <button class="expand-btn" onclick="toggle(this)">How it works <i class="fa-solid fa-chevron-down arr"></i></button>
+      <div class="detail">
+        Each time SonPay opens, it silently checks whether your version is current. If a new version is available, a screen appears with the version number and a direct download button — one tap installs the update. You can also check manually from <strong>Settings → Check for Updates</strong>. Keeping SonPay updated means you always have the latest security patches and features.
+      </div>
+    </div>
+
+  </div><!-- /convenience grid -->
+
+
+  <!-- ── E-SERVICES ── -->
+  <div class="cat-label"><i class="fa-solid fa-bolt text-teal-500"></i> E-Services &amp; Everyday Bills</div>
+  <div class="feat-grid">
+
+    <!-- Bill Payment -->
+    <div class="feat ac-teal">
+      <div class="feat-head">
+        <div class="feat-icon ic-teal"><i class="fa-solid fa-file-invoice"></i></div>
+        <div>
+          <div class="feat-title">Pay Bills</div>
+          <p class="feat-short">Pay electricity, water, internet, and other utility bills directly from your SonPay wallet.</p>
+        </div>
+      </div>
+      <button class="expand-btn" onclick="toggle(this)">How it works <i class="fa-solid fa-chevron-down arr"></i></button>
+      <div class="detail">
+        Go to <strong>E-Services → Pay My Bill</strong>. Choose the service type (electricity, water, etc.) and then pick your provider from the list. Enter your bill reference number — SonPay verifies the invoice status before you pay so you're never charged twice. Confirm the amount and the payment is deducted from your wallet instantly. A receipt is saved in your transaction history.
+      </div>
+    </div>
+
+    <!-- Donations -->
+    <div class="feat ac-rose">
+      <div class="feat-head">
+        <div class="feat-icon ic-pink"><i class="fa-solid fa-heart"></i></div>
+        <div>
+          <div class="feat-title">Donate to Charities</div>
+          <p class="feat-short">Support causes and charity campaigns directly from your wallet — any amount, any time.</p>
+        </div>
+      </div>
+      <button class="expand-btn" onclick="toggle(this)">How it works <i class="fa-solid fa-chevron-down arr"></i></button>
+      <div class="detail">
+        Go to <strong>E-Services → Donations</strong>. You'll see active charity campaigns. Choose one, enter how much you'd like to donate, and confirm. The amount is deducted from your wallet and transferred to the campaign immediately. Currency conversion is handled automatically if needed. All donations appear in your transaction history so you can keep track of your giving.
+      </div>
+    </div>
+
+    <!-- Gift Cards -->
+    <div class="feat ac-rose">
+      <div class="feat-head">
+        <div class="feat-icon ic-rose"><i class="fa-solid fa-gift"></i></div>
+        <div>
+          <div class="feat-title">Gift Cards — Buy &amp; Redeem</div>
+          <p class="feat-short">Buy a digital gift card for anyone on SonPay, or redeem a code to add money to your own wallet.</p>
+        </div>
+      </div>
+      <button class="expand-btn" onclick="toggle(this)">How it works <i class="fa-solid fa-chevron-down arr"></i></button>
+      <div class="detail">
+        <strong>To send:</strong> Go to <strong>E-Services → Gift Cards → SonPay Cards</strong>, choose the amount, enter the recipient's account number, and purchase. They receive the card and the balance is added to their wallet.<br><br>
+        <strong>To redeem:</strong> Go to <strong>E-Services → Gift Cards → Redeem Card</strong>, enter your code (like <strong>Welcome</strong> for new users), and the value is added to your wallet instantly. Great for birthdays, holidays, or just surprising a friend.
+      </div>
+    </div>
+
+  </div><!-- /e-services grid -->
+
+
+  <!-- ── SUPPORT ── -->
+  <div class="cat-label"><i class="fa-solid fa-headset text-sky-500"></i> Support &amp; Help</div>
+  <div class="feat-grid">
+
+    <!-- Live Chat -->
+    <div class="feat ac-sky">
+      <div class="feat-head">
+        <div class="feat-icon ic-sky"><i class="fa-solid fa-comments"></i></div>
+        <div>
+          <div class="feat-title">Live Support Chat</div>
+          <p class="feat-short">Chat directly with the SonPay team inside the app — real-time help, no emails or waiting on hold.</p>
+        </div>
+      </div>
+      <button class="expand-btn" onclick="toggle(this)">How it works <i class="fa-solid fa-chevron-down arr"></i></button>
+      <div class="detail">
+        Open the <strong>Support</strong> tab and tap <strong>Start Chat</strong>. A welcome message is sent automatically and our team responds as quickly as possible. Your chat history is fully saved so you can always come back and review previous conversations. Support agents display a verified badge next to their name so you always know you're talking to the real SonPay team — not a bot or impostor.
+      </div>
+    </div>
+
+    <!-- Business Conversion -->
+    <div class="feat ac-purple">
+      <div class="feat-head">
+        <div class="feat-icon ic-purple"><i class="fa-solid fa-store"></i></div>
+        <div>
+          <div class="feat-title">Upgrade to a Business Account</div>
+          <p class="feat-short">Running a business? Request to convert your personal account to a business account from inside the app.</p>
+        </div>
+      </div>
+      <button class="expand-btn" onclick="toggle(this)">How it works <i class="fa-solid fa-chevron-down arr"></i></button>
+      <div class="detail">
+        Go to the <strong>Support</strong> tab and find the <strong>Business Conversion</strong> option. Enter your business type, and SonPay's team will review your request and upgrade your account. Once upgraded, you gain access to the full Business Hub — payroll, invoicing, branded gift cards, and charity campaigns. The upgrade is reviewed manually to ensure quality and trust on the platform.
+      </div>
+    </div>
+
+  </div><!-- /support grid -->
+
+
+  <!-- ── BUSINESS HUB ── -->
+  <div class="cat-label"><i class="fa-solid fa-building text-purple-600"></i> Business Hub <span class="badge-business ml-2">Business Accounts Only</span></div>
+  <div class="feat-grid">
+
+    <!-- Payroll -->
+    <div class="feat ac-purple">
+      <div class="feat-head">
+        <div class="feat-icon ic-purple"><i class="fa-solid fa-users"></i></div>
+        <div>
+          <div class="feat-title">Employee Payroll</div>
+          <p class="feat-short">Pay all your employees their monthly salary in one click — SonPay handles the transfers and notifies each person.</p>
+        </div>
+      </div>
+      <button class="expand-btn" onclick="toggle(this)">How it works <i class="fa-solid fa-chevron-down arr"></i></button>
+      <div class="detail">
+        Go to <strong>Business Hub → Payroll</strong>. Add each employee by their SonPay account number and set their monthly salary. When payday comes, tap <strong>Run Payroll</strong> and SonPay deducts the total from your balance and transfers each employee's salary to their wallet. Every employee receives a push notification confirming their payment. Verified employee accounts are marked with a badge for easy identification.
+      </div>
+    </div>
+
+    <!-- Invoices -->
+    <div class="feat ac-teal">
+      <div class="feat-head">
+        <div class="feat-icon ic-teal"><i class="fa-solid fa-file-lines"></i></div>
+        <div>
+          <div class="feat-title">Invoice Management</div>
+          <p class="feat-short">Create and send professional invoices to clients — track which ones are paid and which are outstanding.</p>
+        </div>
+      </div>
+      <button class="expand-btn" onclick="toggle(this)">How it works <i class="fa-solid fa-chevron-down arr"></i></button>
+      <div class="detail">
+        Go to <strong>Business Hub → Invoices</strong>. Tap <strong>New Invoice</strong>, enter the client's account number, amount, description, and optionally a custom invoice number (e.g. INV-2026-001). SonPay sends the invoice to the client. You can view all invoices split into <strong>Paid</strong> and <strong>Unpaid</strong> tabs. SonPay checks for duplicate invoice numbers automatically to avoid accounting errors. Compatible with external accounting software through custom number support.
+      </div>
+    </div>
+
+    <!-- Business Gift Cards -->
+    <div class="feat ac-rose">
+      <div class="feat-head">
+        <div class="feat-icon ic-rose"><i class="fa-solid fa-id-card"></i></div>
+        <div>
+          <div class="feat-title">Business Gift Cards</div>
+          <p class="feat-short">Issue branded gift cards to your customers — they redeem them on SonPay and the balance goes straight to your wallet.</p>
+        </div>
+      </div>
+      <button class="expand-btn" onclick="toggle(this)">How it works <i class="fa-solid fa-chevron-down arr"></i></button>
+      <div class="detail">
+        Go to <strong>Business Hub → Gift Cards</strong>. Create gift cards of any value — customers receive a code they can redeem directly in SonPay to add funds to their wallet. No physical cards needed. This is a complete gift card management system: issue, track, and manage redemptions all from the Business Hub. Perfect for loyalty programmes, promotions, or employee rewards.
+      </div>
+    </div>
+
+    <!-- Charity Campaigns -->
+    <div class="feat ac-rose">
+      <div class="feat-head">
+        <div class="feat-icon ic-pink"><i class="fa-solid fa-hand-holding-heart"></i></div>
+        <div>
+          <div class="feat-title">Charity Campaigns</div>
+          <p class="feat-short">Organisations can create fundraising campaigns on SonPay and receive donations from any user.</p>
+        </div>
+      </div>
+      <button class="expand-btn" onclick="toggle(this)">How it works <i class="fa-solid fa-chevron-down arr"></i></button>
+      <div class="detail">
+        Verified organisation accounts go to <strong>Business Hub → Donations</strong> and create a campaign with a name, description, and fundraising goal. Any SonPay user can then find the campaign under <strong>E-Services → Donations</strong> and contribute. Once you've reached your goal (or at any point), tap <strong>Withdraw</strong> to transfer all collected donations to your organisation's wallet. All activity is fully tracked and transparent.
+      </div>
+    </div>
+
+  </div><!-- /business grid -->
+
+</div><!-- /section-wrap -->
+
+<!-- Footer -->
+<footer>
+  <div class="foot-logo">SonPay</div>
+  <div class="foot-socials">
+    <a href="https://instagram.com/SonPayOfficial"><i class="fab fa-instagram"></i></a>
+    <a href="https://facebook.com/SonPayOfficial"><i class="fab fa-facebook"></i></a>
+    <a href="https://x.com/SonPayOfficial"><i class="fab fa-twitter"></i></a>
+  </div>
+  <p class="foot-copy">© 2026 Son LLC — All rights reserved</p>
+</footer>
+
+<script>
+function toggle(btn){
+  btn.classList.toggle('open');
+  btn.nextElementSibling.classList.toggle('open');
+}
+</script>
+</body>
+</html>

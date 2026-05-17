@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Son LLC</title>
+
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.3/dist/tailwind.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+
+body{
+font-family:'Segoe UI',sans-serif;
+background:#f5f7fa;
+color:#111827;
+overflow-x:hidden;
+}
+
+.fade-in{
+opacity:0;
+transform:translateY(20px);
+transition:all .8s ease;
+}
+
+.fade-in.visible{
+opacity:1;
+transform:translateY(0);
+}
+
+.hero{
+height:100vh;
+background-image:url('assets/hero-bg-light.jpg');
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.hero-overlay{
+background:rgba(255,255,255,.9);
+padding:3rem;
+border-radius:1rem;
+max-width:800px;
+text-align:center;
+}
+
+.gradient-card{
+background:linear-gradient(135deg,#ffffff,#f0f4f8);
+border-radius:1rem;
+box-shadow:0 4px 12px rgba(0,0,0,0.05);
+transition:.3s;
+}
+
+.gradient-card:hover{
+transform:translateY(-10px);
+box-shadow:0 10px 30px rgba(0,0,0,0.12);
+}
+
+.logo-container{
+display:flex;
+align-items:center;
+}
+
+.small-logo{
+width:50px;
+height:50px;
+border-radius:8px;
+}
+
+.logo-text{
+font-weight:700;
+font-size:1.25rem;
+margin-left:8px;
+background:linear-gradient(90deg,#2563eb,#3b82f6);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+</style>
+
+</head>
+
+<body class="flex flex-col min-h-screen">
+
+<header class="w-full flex justify-between items-center p-6 fixed top-0 bg-white shadow z-50">
+
+<div class="logo-container">
+<img src="assets/logo.png" class="small-logo">
+<span class="logo-text">Son LLC</span>
+</div>
+
+<nav class="flex items-center">
+<a href="/Download" class="px-3 py-2 rounded-md hover:bg-gray-200 transition">
+Download
+</a>
+
+<span class="mx-2 text-gray-300">│</span>
+
+<a href="/PP" class="px-3 py-2 rounded-md hover:bg-gray-200 transition">
+Privacy Policy & Terms of Use
+</a>
+</nav>
+
+</header>
+
+
+<section class="hero">
+
+<div class="hero-overlay fade-in">
+
+<h1 class="text-4xl md:text-6xl font-bold mb-4">
+Practical Solutions for Everyday Needs
+</h1>
+
+<p class="text-lg md:text-2xl text-gray-700">
+We create tools and services that make work simpler and faster.
+</p>
+
+</div>
+
+</section>
+
+
+<section class="py-20 px-6">
+
+<h2 class="text-3xl md:text-4xl font-bold text-center mb-12 fade-in">
+What We Do
+</h2>
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+
+
+<div class="gradient-card p-6 text-center fade-in">
+
+<img src="assets/SonPay.png" class="small-logo">
+
+<h3 class="text-xl font-semibold mb-2">
+Finance – SonPay
+</h3>
+
+<p class="text-gray-600 mb-4">
+Modern digital payments platform.
+</p>
+
+<a href="/SonPay"
+class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
+Open SonPay
+</a>
+
+</div>
+
+
+<div class="gradient-card p-6 text-center fade-in">
+<div class="text-4xl mb-4 text-blue-600">
+<i class="fas fa-microchip"></i>
+</div>
+<h3 class="text-xl font-semibold mb-2">Technology</h3>
+<p class="text-gray-600">
+Software and hardware solutions.
+</p>
+</div>
+
+
+<div class="gradient-card p-6 text-center fade-in">
+<div class="text-4xl mb-4 text-yellow-600">
+<i class="fas fa-leaf"></i>
+</div>
+<h3 class="text-xl font-semibold mb-2">Energy</h3>
+<p class="text-gray-600">
+Sustainable energy solutions.
+</p>
+</div>
+
+
+<div class="gradient-card p-6 text-center fade-in">
+<div class="text-4xl mb-4 text-red-600">
+<i class="fas fa-heartbeat"></i>
+</div>
+<h3 class="text-xl font-semibold mb-2">Healthcare</h3>
+<p class="text-gray-600">
+Technology for healthcare services.
+</p>
+</div>
+
+</div>
+
+</section>
+
+
+<footer class="bg-white text-gray-500 py-12 mt-auto shadow">
+
+<div class="max-w-6xl mx-auto text-center">
+
+<div class="logo-container justify-center mb-4">
+<img src="assets/logo.png" class="small-logo">
+<span class="logo-text">Son LLC</span>
+</div>
+
+<p class="text-sm text-gray-400">
+© 2026 Son LLC
+</p>
+
+</div>
+
+</footer>
+
+
+<script>
+
+document.addEventListener('DOMContentLoaded',function(){
+
+const elements=document.querySelectorAll('.fade-in');
+
+const show=function(){
+elements.forEach(el=>{
+const top=el.getBoundingClientRect().top;
+if(top<window.innerHeight-100){
+el.classList.add('visible');
+}
+});
+};
+
+show();
+window.addEventListener('scroll',show);
+
+});
+
+</script>
+
+</body>
+</html>
